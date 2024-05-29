@@ -1,0 +1,246 @@
+
+body {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+    gap: 19px;
+    margin-top: 2px;
+}
+
+
+.buttons {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 30px;
+}
+
+.switch input {
+    display: none;
+}
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #dae6ec;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #005cff;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}
+
+.slider.round {
+    border-radius: 38px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+.progress-circle::before {
+    animation: progress 2s 1 forwards;
+}
+
+.value {
+    text-align: center;
+}
+
+.value-box {
+    border-radius: 38px;
+    position: relative;
+    width: 42px;
+    height: 25px;
+    border: 1px solid black;
+
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+text {
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+
+:root {
+    --value: 0;
+}
+
+@property --progress-value {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+@keyframes progress-animation {
+    from {
+        --progress-value: 0;
+    }
+    to {
+        --progress-value: var(--value);
+    }
+}
+
+.progress-circle.animate {
+    animation-name: progress-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+@media screen and (orientation: portrait) {
+    .progress-container {
+        position: relative;
+        top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progress-circle {
+        position: absolute;
+        #grid-row: 1;
+        #right: auto;
+        #left: auto;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: radial-gradient(closest-side, white 83%, transparent 80%),
+        conic-gradient(#005cff calc(var(--progress-value) * 1%), #eaf0f6 0);
+
+        animation: progress-animation 2s 1 forwards;
+
+    }
+
+
+    .controls {
+        position: absolute;
+        #top: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 70%;
+    }
+}
+
+
+@media screen and (orientation: landscape) {
+    .progress-container {
+        position: relative;
+        left: 100px;
+        top: 100px;
+        display: flex;
+        #flex-direction: row;
+        width: 65%;
+        align-items: center;
+        background-color: pink;
+        #justify-content: space-between;
+    }
+
+    .progress-circle {
+        position: absolute;
+
+        top: 50%;
+        bottom: 50%;
+        #left: 10%;
+
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: radial-gradient(closest-side, white 83%, transparent 80%),
+        conic-gradient(#005cff calc(var(--progress-value) * 1%), #eaf0f6 0);
+
+        animation: progress-animation 2s 1 forwards;
+    }
+
+    .controls {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        #align-items: flex-end;
+        left: 60%;
+        top: 50%;
+        bottom: 50%;
+    }
+
+    /*.controls.hide {
+        position: relative;
+        left: 35%;
+    }*/
+}
