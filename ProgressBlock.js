@@ -1,4 +1,5 @@
-import { setValue, hideBlock, animateBlock} from './script.js';
+import {setValue, hideBlock, animateBlock} from './script.js';
+
 class ProgressBlock {
 
     constructor() {
@@ -12,15 +13,10 @@ class ProgressBlock {
         setValue(value);
         const progressCircle = document.querySelector('.progress-circle')
         progressCircle.style.display = 'none';
-       // progressCircle.style.display = 'block'
-       setTimeout(() => {
+
+        setTimeout(() => {
             progressCircle.style.display = 'block'
         }, 1)
-        //progressCircle.style.display = 'block'
-
-
-        //document.documentElement.style.setProperty('--progress-value', value);
-        //void document.documentElement.offsetWidth;
     }
 
     handleAnimateToggle(event) {

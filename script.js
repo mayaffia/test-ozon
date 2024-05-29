@@ -1,10 +1,5 @@
 export function setValue() {
     const valueBox = document.querySelector('.value-box');
-    //const progressCircle = document.querySelector('.progress-circle')
-    //progressCircle.style.display = 'none';
-    /*setTimeout(() => {
-        progressCircle.style.display = 'block'
-    }, 50)*/
     if (valueBox) {
         const handleInput = function (e) {
             let value = e.target.value;
@@ -21,10 +16,6 @@ export function setValue() {
                 value = 100;
             }
 
-            /*if (value === 0) {
-                value = '';
-            }*/
-
             e.target.value = value;
             document.documentElement.style.setProperty('--value', value);
             document.documentElement.style.setProperty('--progress-value', value);
@@ -33,14 +24,6 @@ export function setValue() {
         };
 
         valueBox.addEventListener('input', handleInput);
-        //progressCircle.style.display = 'block'
-
-        //const progressCircle = document.querySelector('.progress-circle')
-        /*progressCircle.style.display='none';
-        let redrawFix = progressCircle.offsetHeight;
-        progressCircle.style.display='block';*/
-        //console.log('want to hide')
-
 
         if (valueBox.value) {
             handleInput({target: valueBox});
@@ -50,11 +33,9 @@ export function setValue() {
 
 
 export function hideBlock() {
-    //console.log('hide')
     const hideCheckbox = document.querySelector('.switch.hide input');
     if (hideCheckbox) {
         const progressCircle = document.querySelector('.progress-circle');
-        const controls = document.querySelector('.controls');
 
         const handleChange = function (e) {
             if (e.target.checked) {
@@ -63,14 +44,12 @@ export function hideBlock() {
                 disableElement('.value-box')
                 disableElement('text#value')
                 disableElement('text#animate')
-                controls.classList.add('hide');
             } else {
                 progressCircle.style.display = 'block';
                 enableElement('.switch.animate input')
                 enableElement('.value-box')
                 enableElement('text#value')
                 enableElement('text#animate')
-                controls.classList.remove('hide');
             }
         };
 

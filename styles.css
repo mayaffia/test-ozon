@@ -166,9 +166,6 @@ text {
 
     .progress-circle {
         position: absolute;
-        #grid-row: 1;
-        #right: auto;
-        #left: auto;
         width: 120px;
         height: 120px;
         border-radius: 50%;
@@ -187,7 +184,6 @@ text {
 
     .controls {
         position: absolute;
-        #top: 100%;
         display: flex;
         flex-direction: row;
         margin-top: 70%;
@@ -201,11 +197,9 @@ text {
         left: 100px;
         top: 100px;
         display: flex;
-        #flex-direction: row;
         width: 65%;
         align-items: center;
         background-color: pink;
-        #justify-content: space-between;
     }
 
     .progress-circle {
@@ -213,7 +207,6 @@ text {
 
         top: 50%;
         bottom: 50%;
-        #left: 10%;
 
         width: 120px;
         height: 120px;
@@ -233,14 +226,8 @@ text {
         position: absolute;
         display: flex;
         flex-direction: row;
-        #align-items: flex-end;
         left: 60%;
         top: 50%;
         bottom: 50%;
     }
-
-    /*.controls.hide {
-        position: relative;
-        left: 35%;
-    }*/
 }
